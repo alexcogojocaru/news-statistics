@@ -2,6 +2,8 @@
 
 This script generates the evolution by day for multiple topics chosen by the user.
 
+Make sure that: <b>your_current_day * number_of_topics < 500</b>
+
 <h1>APIs used:</h1>
 <ul>
   <li>
