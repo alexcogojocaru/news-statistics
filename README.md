@@ -1,5 +1,7 @@
 # news-statistics
 
+This script generates the evolution by day for multiple topics chosen by the user.
+
 <h1>APIs used:</h1>
 <ul>
   <li>
