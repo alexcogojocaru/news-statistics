@@ -2,5 +2,8 @@
 
 <h1>APIs used:</h1>
 <ul>
-  <li><a href="https://newsapi.org/">News API</a></li>  
+  <li>
+    <a href="https://newsapi.org/">News API</a>
+    <p>This script is written using the developer version of the API. I'd recommend to generate a new api key if you want to test the app, as it's restricted to only 500 requests per day.</p>
+  </li>  
 </ul>
