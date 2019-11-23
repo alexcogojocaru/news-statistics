@@ -1,6 +1,7 @@
 from datetime import date
 import calendar
 
+
 class Date:
     def __init__(self, offset=None):
         self.__year = date.today().year
@@ -15,30 +16,31 @@ class Date:
                 self.day = calendar.monthrange(self.__year, self.__month)[1] - (offset - date.today().day)
             
     def toString(self):
-        dayStr = str(self.day)
-        monthStr = str(self.__month)
-
-        if self.day < 10:
-            dayStr = '0' + str(self.day)
-
-        if self.__month < 10:
-            monthStr = '0' + str(self.__month)
-
-        return str(self.__year) + '-' + monthStr + '-' + dayStr
-
-    def addDay(self, day):
-        lastDay = calendar.monthrange(self.__year, self.__month)[1]
-
-        self.day += day
-        if self.day > lastDay:
-            self.__month += 1
-            self.day = (self.day - day) % lastDay
+        return ("%d-%02d-%02d" % (self.__year, self.__month, self.day))
 
     def substractDay(self, day):
-        self.day -= day
-
-        if self.day < 1:
+        if day < self.day:
+            self.day -= day
+        else:
             self.__month -= 1
             lastDay = calendar.monthrange(self.__year, self.__month)[1]
 
-            self.day = lastDay + self.day
+            day -= self.day
+            while day > lastDay:
+                day -= lastDay
+                self.__month -= 1
+
+                if self.__month < 1:
+                    self.__month = 12
+                    self.__year -= 1
+
+                lastDay = calendar.monthrange(self.__year, self.__month)[1]
+            
+            self.day = lastDay - day - 1
+
+    def getTodayDate(self):
+        year = date.today().year
+        month = date.today().month
+        day = date.today().day
+
+        return ("%d-%02d-%02d" % (year, month, day))
