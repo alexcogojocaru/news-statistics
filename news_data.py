@@ -25,7 +25,8 @@ while True:
 
 for x in range(0, len(x_axis)):
     for y, count in zip(categories, range(0, len(categories))):
-        categoriesAPI.append(newsapi.get_everything(q=y, from_param=plotDate.toString(), to='2019-11-23', language='en'))
+        print(plotDate.toString())
+        categoriesAPI.append(newsapi.get_everything(q=y, from_param=plotDate.toString(), language='en'))
         y_axis[count].append(categoriesAPI[count]['totalResults'])
 
     categoriesAPI = []
